@@ -41,5 +41,5 @@ require("lazy").setup({
 	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",
     -- Scheme
-    "tanvirtin/monokai.nvim",
+    "folke/tokyonight.nvim"
 })
