@@ -40,6 +40,27 @@ require("lazy").setup({
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",
+    {
+        "simrat39/rust-tools.nvim",
+        config = function() 
+            require("config.rust-tools")
+        end,
+    },
     -- Scheme
-    "tanvirtin/monokai.nvim",
+    "tanvirtin/monokai.nvim", -- File explorer
+    {
+        'stevearc/oil.nvim',
+        opts = {},
+        -- Optional dependencies
+        dependencies = { "echasnovski/mini.icons" },
+        config = function()
+            require("config.oil")
+        end,
+    },
+    -- Fuzzy finder
+    {
+      'nvim-telescope/telescope.nvim',
+      dependencies = { 'nvim-lua/plenary.nvim' }
+    }
+
 })
