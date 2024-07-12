@@ -13,3 +13,13 @@ require('mason-lspconfig').setup({
     ensure_installed = { 'rust_analyzer' },
 })
 
+local lspconfig = require('lspconfig')
+lspconfig.rust_analyzer.setup {
+  -- Server-specific settings. See `:help lspconfig-setup`
+  settings = {
+    ['rust-analyzer'] = {},
+  },
+  on_attach = function(client, buffer) 
+    vim.lsp.inlay_hint.enable()
+  end,
+}
