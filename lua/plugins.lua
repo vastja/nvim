@@ -47,7 +47,7 @@ require("lazy").setup({
         end,
     },
     -- Scheme
-    "folke/tokyonight.nvim"
+    "folke/tokyonight.nvim",
     -- File explorer
     {
         'stevearc/oil.nvim',
