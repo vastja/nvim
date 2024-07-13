@@ -34,17 +34,17 @@ require("lazy").setup({
     {
         'neovim/nvim-lspconfig',
         dependencies = {
-            { 
+            {
                 'williamboman/mason.nvim',
-                config = true 
+                config = true
             },
             'williamboman/mason-lspconfig.nvim',
             'WhoIsSethDaniel/mason-tool-installer.nvim',
-            { 
-                'j-hui/fidget.nvim', 
-                opts = {} 
+            {
+                'j-hui/fidget.nvim',
+                opts = {}
             },
-            { 
+            {
                 'folke/neodev.nvim',
                 opts = {}
             },
@@ -52,6 +52,14 @@ require("lazy").setup({
         config = function()
             require("lsp")
         end
+    },
+    -- Auto formatting
+    {
+        'stevearc/conform.nvim',
+        lazy = false,
+        config = function()
+            require('config.conform')
+        end,
     },
     -- Scheme
     "folke/tokyonight.nvim",
