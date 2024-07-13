@@ -12,11 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    -- Vscode-like pictograms
-	{
-		"onsails/lspkind.nvim",
-		event = { "VimEnter" },
-	},
 	-- Auto-completion engine
 	{
 		"hrsh7th/nvim-cmp",
@@ -34,17 +29,29 @@ require("lazy").setup({
 	-- Code snippet engine
 	{
 		"L3MON4D3/LuaSnip",
-		version = "v2.*",
 	},
-    -- LSP manager
-	"williamboman/mason.nvim",
-	"williamboman/mason-lspconfig.nvim",
-	"neovim/nvim-lspconfig",
+    -- LSP 
     {
-        "simrat39/rust-tools.nvim",
-        config = function() 
-            require("config.rust-tools")
-        end,
+        'neovim/nvim-lspconfig',
+        dependencies = {
+            { 
+                'williamboman/mason.nvim',
+                config = true 
+            },
+            'williamboman/mason-lspconfig.nvim',
+            'WhoIsSethDaniel/mason-tool-installer.nvim',
+            { 
+                'j-hui/fidget.nvim', 
+                opts = {} 
+            },
+            { 
+                'folke/neodev.nvim',
+                opts = {}
+            },
+        },
+        config = function()
+            require("lsp")
+        end
     },
     -- Scheme
     "folke/tokyonight.nvim",
