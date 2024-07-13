@@ -30,52 +30,64 @@ require("lazy").setup({
 	{
 		"L3MON4D3/LuaSnip",
 	},
-    -- LSP 
-    {
-        'neovim/nvim-lspconfig',
-        dependencies = {
-            {
-                'williamboman/mason.nvim',
-                config = true
-            },
-            'williamboman/mason-lspconfig.nvim',
-            'WhoIsSethDaniel/mason-tool-installer.nvim',
-            {
-                'j-hui/fidget.nvim',
-                opts = {}
-            },
-            {
-                'folke/neodev.nvim',
-                opts = {}
-            },
-        },
-        config = function()
-            require("lsp")
-        end
-    },
-    -- Auto formatting
-    {
-        'stevearc/conform.nvim',
-        lazy = false,
-        config = function()
-            require('config.conform')
-        end,
-    },
-    -- Scheme
-    "folke/tokyonight.nvim",
-    -- File explorer
-    {
-        'stevearc/oil.nvim',
-        opts = {},
-        -- Optional dependencies
-        dependencies = { "echasnovski/mini.icons" },
-        config = function()
-            require("config.oil")
-        end,
-    },
-    -- Fuzzy finder
-    {
-      'nvim-telescope/telescope.nvim',
-      dependencies = { 'nvim-lua/plenary.nvim' }
-    }
+	-- LSP
+	{
+		"neovim/nvim-lspconfig",
+		dependencies = {
+			{
+				"williamboman/mason.nvim",
+				config = true,
+			},
+			"williamboman/mason-lspconfig.nvim",
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			{
+				"j-hui/fidget.nvim",
+				opts = {},
+			},
+			{
+				"folke/neodev.nvim",
+				opts = {},
+			},
+		},
+		config = function()
+			require("lsp")
+		end,
+	},
+	-- Auto formatting
+	{
+		"stevearc/conform.nvim",
+		lazy = false,
+		config = function()
+			require("config.conform")
+		end,
+	},
+	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
+		"lewis6991/gitsigns.nvim",
+		opts = {
+			signs = {
+				add = { text = "+" },
+				change = { text = "~" },
+				delete = { text = "_" },
+				topdelete = { text = "‾" },
+				changedelete = { text = "~" },
+			},
+		},
+	},
+	-- Scheme
+	"folke/tokyonight.nvim",
+	-- File explorer
+	{
+		"stevearc/oil.nvim",
+		opts = {},
+		-- Optional dependencies
+		dependencies = { "echasnovski/mini.icons" },
+		config = function()
+			require("config.oil")
+		end,
+	},
+	-- Fuzzy finder
+	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
 })
