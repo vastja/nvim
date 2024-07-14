@@ -1,6 +1,6 @@
 vim.keymap.set("n", "<leader>f", function()
 	require("conform").format({ async = true, lsp_fallback = true })
-end, { noremap = true, desc = "[F]ormat buffer" })
+end, { desc = "[F]ormat buffer" })
 
 require("conform").setup({
 	notify_on_error = false,
