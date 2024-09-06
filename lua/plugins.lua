@@ -165,4 +165,11 @@ require("lazy").setup({
 			require("config.telescope")
 		end,
 	},
+	-- Rust Tools
+	{
+		"mrcjkb/rustaceanvim",
+		config = function()
+			require("config.rustaceanvim")
+		end,
+	},
 })
