@@ -168,8 +168,8 @@ require("lazy").setup({
 	-- Rust Tools
 	{
 		"mrcjkb/rustaceanvim",
-		config = function()
-			require("config.rustaceanvim")
-		end,
+		dependencies = {
+			"mfussenegger/nvim-dap",
+		},
 	},
 })
