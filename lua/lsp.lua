@@ -160,3 +160,9 @@ dap.configurations.rust = {
 		end,
 	},
 }
+
+-- Typescript
+-- Prerequisites:
+-- * typescript
+-- * typescript-language-server
+require("lspconfig").tsserver.setup({})
