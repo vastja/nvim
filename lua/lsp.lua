@@ -166,3 +166,12 @@ dap.configurations.rust = {
 -- * typescript
 -- * typescript-language-server
 require("lspconfig").tsserver.setup({})
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+require("lspconfig").omnisharp.setup({
+	cmd = { "OmniSharp" },
+	capabilities = capabilities,
+	enable_editorconfig_support = true,
+	enable_roslyn_analyzers = true,
+	organize_imports_on_format = true,
+})
