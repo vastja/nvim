@@ -87,9 +87,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-
 local servers = {
 	lua_ls = {
 		settings = {
@@ -166,3 +163,12 @@ dap.configurations.rust = {
 -- * typescript
 -- * typescript-language-server
 require("lspconfig").tsserver.setup({})
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+require("lspconfig").omnisharp.setup({
+	cmd = { "OmniSharp" },
+	capabilities = capabilities,
+	enable_editorconfig_support = true,
+	enable_roslyn_analyzers = true,
+	organize_imports_on_format = true,
+})
